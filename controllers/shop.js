@@ -16,9 +16,8 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.getProduct = (req, res, next) => {
-    const prodId = req.params.productId;
-    
-    Product.findById(prodId)
+    const prodId = req.params.productId;    
+    Product.findByPk(prodId)
       .then(product => {
         res.render('shop/product-detail', {
           product: product,
@@ -37,7 +36,7 @@ exports.getIndex = (req, res, next) => {
                 pageTitle: 'Shop',
                 path: '/'
             });
-        })
+        }) 
         .catch(err => {
             console.log(err);
         });    
